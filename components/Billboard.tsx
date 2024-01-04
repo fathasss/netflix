@@ -3,10 +3,10 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline';
 
 import PlayButton from '@/components/PlayButton';
 import useBillboard from '@/hooks/useBillboard';
-import useInfoModalStore from '@/hooks/useInfoModalStore';
+import useInfoModal from '@/hooks/useInfoModal';
 
 const Billboard: React.FC = () => {
-  const { openModal } = useInfoModalStore();
+  const { openModal } = useInfoModal();
   const { data } = useBillboard();
 
   const handleOpenModal = useCallback(() => {
@@ -45,9 +45,9 @@ const Billboard: React.FC = () => {
               hover:bg-opacity-20
               transition
             "
-            >
-              <InformationCircleIcon className="w-4 md:w-7 mr-1" />
-              More Info
+          >
+            <InformationCircleIcon className="w-4 md:w-7 mr-1" />
+            More Info
           </button>
         </div>
       </div>

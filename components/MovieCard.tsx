@@ -5,7 +5,7 @@ import { PlayIcon } from '@heroicons/react/24/solid';
 
 import { MovieInterface } from '@/types';
 import FavoriteButton from '@/components/FavoriteButton';
-import useInfoModalStore from '@/hooks/useInfoModalStore';
+import useInfoModal from '@/hooks/useInfoModal';
 
 interface MovieCardProps {
   data: MovieInterface;
@@ -13,7 +13,7 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
-  const { openModal } = useInfoModalStore();
+  const { openModal } = useInfoModal();
 
   const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
 

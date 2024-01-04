@@ -3,7 +3,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import PlayButton from '@/components/PlayButton';
 import FavoriteButton from '@/components/FavoriteButton';
-import useInfoModalStore from '@/hooks/useInfoModalStore';
+import useInfoModal from '@/hooks/useInfoModal';
 import useMovie from '@/hooks/useMovie';
 
 interface InfoModalProps {
@@ -14,7 +14,7 @@ interface InfoModalProps {
 const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
   const [isVisible, setIsVisible] = useState<boolean>(!!visible);
 
-  const { movieId } = useInfoModalStore();
+  const { movieId } = useInfoModal();
   const { data = {} } = useMovie(movieId);
 
   useEffect(() => {
