@@ -13,7 +13,7 @@ const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
-  const { openModal } = useSearchModal();
+  const { isOpened, closeModale, openModal } = useSearchModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,10 +58,12 @@ const Navbar = () => {
           <p className="text-white text-sm">Browse</p>
           <ChevronDownIcon className={`w-4 text-white fill-white transition ${showMobileMenu ? 'rotate-180' : 'rotate-0'}`} />
           <MobileMenu visible={showMobileMenu} />
+
         </div>
         <div className="flex flex-row ml-auto gap-7 items-center">
-          <div onClick={openModal} className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-            <MagnifyingGlassIcon className="w-6" />
+          <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+            <SearchMenu visible={isOpened} onClose={closeModale} />
+            <MagnifyingGlassIcon onClick={openModal} className="w-6" />
           </div>
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
             <BellIcon className="w-6" />
